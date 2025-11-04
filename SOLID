@@ -1,0 +1,35 @@
+// A função soma só lida com adição.
+
+A função main só lida com a interface do usuário (I/O) e o fluxo de controle (switch).
+
+float soma(float a, float b) {
+    return a + b;
+}
+
+// Responsabilidade Única: A função 'divisao' lida apenas com a divisão, 
+// incluindo a regra de negócio para evitar divisão por zero.
+float divisao(float a, float b) {
+    if (b != 0) {
+        return a / b;
+    } else {
+        printf("Erro: Divisao por zero nao e permitida!\n");
+        return 0.0; 
+    }
+}
+
+
+
+int main() {
+    // ... (código existente)
+
+    // 2. FECHADO PARA MODIFICAÇÃO: As funções de cálculo existentes não mudam.
+    // Apenas o 'switch' precisa de um novo 'case' para CHAMAR a nova função.
+    switch(operacao) {
+        // ... cases 1 a 4 permanecem os mesmos
+        case 5: // NOVO CASE
+            printf("%.2f ^ %.2f = %.2f\n", num1, num2, potencia(num1, num2));
+            break;
+        // ...
+    }
+    return 0;
+}
